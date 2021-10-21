@@ -11,7 +11,7 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
   const ResJson = JSON.parse(payload);
-  console.log(ResJson.commits[0].author);
+  console.log(ResJson.commits[0].author.username);
 } catch (error) {
   core.setFailed(error.message);
 }
