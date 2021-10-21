@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: donPain/hello-world-javascript-action
+        uses: donPain/hello-world-javascript-action@v1.1
         with:
           who-to-greet: 'Olá eduardo'
     
