@@ -1,5 +1,5 @@
-The event payload: {
-  "after": "aa0a9fae1e50d281055c5b09626bc9c0185f1edb",
+The event payload: 
+  '{"after": "aa0a9fae1e50d281055c5b09626bc9c0185f1edb",
   "base_ref": null,
   "before": "7ad13920b0be1a0c448abf971476fb53ecf3dac4",
   "commits": [
@@ -171,4 +171,4 @@ The event payload: {
     "type": "User",
     "url": "https://api.github.com/users/donPain"
   }
-}
+}'

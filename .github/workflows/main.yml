@@ -1,4 +1,6 @@
-on: [push]
+on:
+  issues:
+    types: [opened]
 
 jobs:
   hello_world_job:
@@ -7,7 +9,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: donPain/hello-world-javascript-action@v1.2
+        uses: donPain/hello-world-javascript-action@v1.6
         with:
           who-to-greet: 'Olá eduardo'
     
