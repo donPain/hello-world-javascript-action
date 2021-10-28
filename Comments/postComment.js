@@ -1,21 +1,22 @@
 var https = require('follow-redirects').https;
 var fs = require('fs');
-const getToken = require ("../Authorization/getToken.js");
+import { getToken } from '../Authorization/getToken.js'
+// const getToken = require ("../Authorization/getToken.js");
 
 const content = "Comentário da api";
 const organizationId = 111402;
 const accountId = 3757321;
 const activityId = 19689573;
 
+var tokenzein = getToken
+console.log(tokenzein);
+createComment(organizationId, accountId,activityId,content,tokenzein);
 
 
-createComment(organizationId,accountId,activityId,content);
+async function createComment(organizationId,accountid,activityid,content,myToken) {
 
-  
-async function createComment(organizationId,accountid,activityid,content) {
-
-    // const myToken = await getToken;
-
+   
+    
         var options = {
             'method': 'POST',
             'hostname': 'app.artia.com',
@@ -23,11 +24,11 @@ async function createComment(organizationId,accountid,activityid,content) {
             'headers': {
                 'OrganizationId': organizationId.toString(),
                 'Content-Type': 'application/json',
-                'Authorization':'Bearer '+ 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMDU4NjgsImV4cCI6MTYzNTQ0NTkyM30.o6P7cNtLrCuFJGGHQ53WJuvA2DrTFNekLObhGJs5TyQ'
+                'Authorization':'Bearer '+ myToken//'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMDU4NjgsImV4cCI6MTYzNTQ0NTkyM30.o6P7cNtLrCuFJGGHQ53WJuvA2DrTFNekLObhGJs5TyQ'
             },
             'maxRedirects': 20
         };
-        
+        console.log('meu token na 30 '+myToken);
         var req = https.request(options, function (res) {
             var chunks = [];
         
@@ -83,7 +84,4 @@ async function createComment(organizationId,accountid,activityid,content) {
         
 }
 
-function myCreateToken() {
-    throw new Error('Function not implemented.');
-}
 
