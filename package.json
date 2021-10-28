@@ -22,6 +22,13 @@
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",
     "axios": "^0.23.0",
-    "github-actions": "^0.9.0"
+    "fetch": "^1.1.0",
+    "follow-redirects": "^1.14.4",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "github-actions": "^0.9.0",
+    "headers": "^0.9.6",
+    "node-fetch": "^3.0.0",
+    "request": "^2.88.2"
   }
 }
