@@ -1,10 +1,7 @@
 const { error } = require('@actions/core');
 var unirest = require('unirest');
 
-
-
-getToken()
-function getToken(){
+module.exports = function getToken(){
   return new Promise((resolve,reject)=> unirest('POST', 'https://app.artia.com/graphql')
   .headers({
     'Content-Type': 'application/json'
@@ -24,5 +21,5 @@ function getToken(){
       const resObj = JSON.parse(res.raw_body);
       const token = resObj.data.authenticationByEmail.token;
       console.log(token)
-      resolve(token);  
+      return resolve(token);  
   }))};
