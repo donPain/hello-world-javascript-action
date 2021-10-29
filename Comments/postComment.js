@@ -1,19 +1,18 @@
 var https = require('follow-redirects').https;
 var fs = require('fs');
-import { getToken } from '../Authorization/getToken.js'
-// const getToken = require ("../Authorization/getToken.js");
+var asyncGetToken = require("../Authorization/getToken.js");
 
 const content = "Comentário da api";
 const organizationId = 111402;
 const accountId = 3757321;
 const activityId = 19689573;
 
-var tokenzein = getToken
-console.log(tokenzein);
-createComment(organizationId, accountId,activityId,content,tokenzein);
+createComment(organizationId, accountId,activityId,content);
 
 
-async function createComment(organizationId,accountid,activityid,content,myToken) {
+async function createComment(organizationId,accountid,activityid,content) {
+
+    var tokenzein = await asyncGetToken()
 
    
     
@@ -24,11 +23,11 @@ async function createComment(organizationId,accountid,activityid,content,myToken
             'headers': {
                 'OrganizationId': organizationId.toString(),
                 'Content-Type': 'application/json',
-                'Authorization':'Bearer '+ myToken//'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMDU4NjgsImV4cCI6MTYzNTQ0NTkyM30.o6P7cNtLrCuFJGGHQ53WJuvA2DrTFNekLObhGJs5TyQ'
+                'Authorization':'Bearer '+ tokenzein//'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMDU4NjgsImV4cCI6MTYzNTQ0NTkyM30.o6P7cNtLrCuFJGGHQ53WJuvA2DrTFNekLObhGJs5TyQ'
             },
             'maxRedirects': 20
         };
-        console.log('meu token na 30 '+myToken);
+        console.log('meu token na 30 '+tokenzein);
         var req = https.request(options, function (res) {
             var chunks = [];
         
